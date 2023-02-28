@@ -1,0 +1,36 @@
+(1) What is the difference between Applications of softwer and system software?
+
+Ans. The system software is used for operating computer hardware. On the other hand Application software are installed according to user’s 
+requirements.
+
+(2) Explain the SDLC Each faceProcess
+
+ans. Inception phase (analysis of the project's needs, goals, and scope). Elaboration phase (the design of a functional product architecture). Construction phase (coding of the architecture and creation of a deployable product) Transition phase (releasing the product to a production environment)
+
+(3)  What is software?
+
+ans. Software is a set of instructions, data or programs used to operate computers and execute specific tasks. It is the opposite of hardware, which describes the physical aspects of a computer. Software is a generic term used to refer to applications, scripts and programs that run on a device. It can be thought of as the variable part of a computer, while hardware is the invariable part.
+
+(4) Types of software.
+
+ans. The 3 types of computer software
+System software. ...
+Utility software. ...
+Application software.
+
+(5) What is Software Development Methodology?
+
+ans. A software development methodology is a process by which developers design, implement and test new computer programs. Following a methodology benefits developers because these processes lay out a structured sequence of steps that guide professionals through each stage of development.
+
+(6) What is DesignPattern?
+
+ans. In software engineering, a design pattern is a general repeatable solution to a commonly occurring problem in software design. A design pattern isn't .
+
+(7) Explain the SDLC Each faceProcess.
+
+ans. Inception phase (analysis of the project's needs, goals, and scope). Elaboration phase (the design of a functional product architecture). Construction phase (coding of the architecture and creation of a deployable product) Transition phase (releasing the product to a production environment).
+
+
+
+
+

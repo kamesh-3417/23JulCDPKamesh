@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Booking</title>
+</head>
+<body>
+    <h1>Restaurant Booking Form</h1>
+    <form id="bookingForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required><br><br>
+
+        <label for="partySize">Party Size:</label>
+        <input type="number" id="partySize" name="partySize" min="1" required><br><br>
+
+        <label for="full day Booking">full day Booking:</label>
+        <input type="number" id="full day Booking" name="full day Booking" min="1" required><br><br>
+
+        <label for="booking_option">Select a booking option:</label>
+        <select id="booking_option" name="booking_option">
+            <option value="option1">full day booking 1</option>
+            <option value="option2">half day booking 2</option>
+            <option value="option3">Hourly booking   3</option>
+            <!-- Add more options as needed -->
+        </select>
+        <br><br>
+        <label for="booking_option">Select a booking option:</label>
+        <select id="booking_option" name="booking_option">
+            <option value="option1">breakfast</option>
+            <option value="option2">lunch</option>
+            <option value="option3">dinner</option>
+            <!-- Add more options as needed -->
+        </select>
+        <br><br>
+        <!-- Other form fields and submit button go here -->
+        <input type="submit" value="Submit">
+        
+
+       
+    </form>
+
+    <div id="confirmation" style="display: none;">
+        <h2>Booking Confirmation</h2>
+        <p>Name: <span id="confirmedName"></span></p>
+        <p>Email: <span id="confirmedEmail"></span></p>
+        <p>Date: <span id="confirmedDate"></span></p>
+        <p>Time: <span id="confirmedTime"></span></p>
+        <p>Party Size: <span id="confirmedPartySize"></span></p>
+    </div>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form input values
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var date = document.getElementById('date').value;
+            var time = document.getElementById('time').value;
+            var partySize = document.getElementById('partySize').value;
+
+            // Display confirmation
+            document.getElementById('confirmedName').textContent = name;
+            document.getElementById('confirmedEmail').textContent = email;
+            document.getElementById('confirmedDate').textContent = date;
+            document.getElementById('confirmedTime').textContent = time;
+            document.getElementById('confirmedPartySize').textContent = partySize;
+
+            document.getElementById('bookingForm').style.display = 'none';
+               document.getElementById('confirmation').style.display = 'block';
+        });
+    </script>
+        
+</body>
+</html>

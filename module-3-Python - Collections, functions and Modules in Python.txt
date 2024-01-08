@@ -50,14 +50,17 @@ print(match_words(['abc','xyz','aba','1221']))
 
 7. Write a Python program to remove duplicates from a list.
 
- a= [10,20,30,20,10,50,60,40,80,50,40]
- dup_items = set()
- uniq_items = []
- for x in a:
-   if x not in dup_items:
-      uniq_items.append(x)
-      dup_items.add(x)
- print(dup_items)
+def remove_duplicates(input_list):
+    unique_list = []
+    for item in input_list:
+        if item not in unique_list:
+            unique_list.append(item)
+    return unique_list
+
+input_list = [1, 2, 3, 4, 2, 3, 5, 6, 7, 8, 1]
+result_list = remove_duplicates(input_list)
+print("Original List:", input_list)
+print("List with Duplicates Removed:", result_list)
 
 
 
@@ -114,13 +117,18 @@ print(unique_list([1,2,3,3,3,4,5]))
 
 12. Write a Python program to convert a list of characters into a string.
 
-def convert(s):
-  new=""
-  for x in s:
-    new += x
-  return new
-s = ['k','a','m','e','s','h']
-print(convert(s))
+def list_to_string(char_list):
+
+    result_string = ''.join(char_list)
+    return result_string
+
+
+characters = ['K', 'a', 'm', 'e', 's','h']
+result = list_to_string(characters)
+
+print("List of characters:", characters)
+print("Resulting string:", result)
+
 
 
 
@@ -177,19 +185,30 @@ else:
 
 17. Write a Python program to split a list into different variables.
 
-color =
-[("orange","000000","owg(0,0,0)"),("white","#FF0000","owg(255,0,0)"),("green","FFFF00","owg(255,2
-55,0)")]
+def split_list(input_list):
+     Ensure the number of variables matches the length of the input list
+    if len(input_list) < 3:
+        print("Error: List should have at least 3 elements for splitting.")
+        return
 
-var1,var2,var3 = color
+     Unpack the list into variables
+    var1, var2, *remaining = input_list
 
-print(var1)
-print(var2)
-print(var3)
+    return var1, var2, remaining
+
+
+input_list = [1, 2, 3, 4, 5]
+result_var1, result_var2, result_remaining = split_list(input_list)
+
+print("Original List:", input_list)
+print("Var1:", result_var1)
+print("Var2:", result_var2)
+print("Remaining:", result_remaining)
 
 
 18. What is tuple? Difference between list and tuple.
-  Lists are mutable, which means they can be changed. The tuple is immutable, which means it cannot be changed.
+ 
+ Lists are mutable, which means they can be changed. The tuple is immutable, which means it cannot be changed.
    The set is mutable, which means that we can change it. However, no elements are duplicated.
 
 
@@ -218,16 +237,28 @@ print(str)
 
 22. Write a Python program to check whether an element exists within a tuple.
 
-tuple = ("k","a","m","e","s","h","0","0","7")
-print("n" in tuple)
-print("5" in tuple)
+def element_exists(element, my_tuple):
+    return element in my_tuple
+
+my_tuple = (1, 2, 3, 4, 5)
+
+element_to_check = 3
+if element_exists(element_to_check, my_tuple):
+    print(f"{element_to_check} exists in the tuple.")
+else:
+    print(f"{element_to_check} does not exist in the tuple.")
 
 
 23. Write a Python program to find the length of a tuple.
 
-tuple = ("k","a","m","e","s","h")
-print(tuple)
-print(len(tuple))
+
+my_tuple = (1, 2, 3, 4, 5)
+
+
+tuple_length = len(my_tuple)
+
+
+print(f"The length of the tuple is: {tuple_length}")
 
 
 24. Write a Python program to convert a list to a tuple.
@@ -385,32 +416,69 @@ print(d)
 
 40. Write a Python program to map two lists into a dictionary.
 
-keys = ['orange','white','green']
-values = ['#FF0000','#00800','#0000FF']
-color_dictionary = dict(zip(keys,values))
-print(color_dictionary)
+def lists_to_dict(keys, values):
+    
+    pairs = zip(keys, values)
+
+    result_dict = dict(pairs)
+
+    return result_dict
+
+keys_list = ['name', 'age', 'city']
+values_list = ['kamesh', 25, 'ahmdabad']
+
+result_dict = lists_to_dict(keys_list, values_list)
+
+print("Original Lists:")
+print("Keys:", keys_list)
+print("Values:", values_list)
+print("\nResulting Dictionary:")
+print(result_dict)
 
 
-41. Write a Python program to combine two dictionary adding values for
-common keys. d1 = {'a': 100, 'b': 200, 'c':300} o d2 = {'a': 300, 'b': 200,’d’:400}
-Sample output: Counter ({'a': 400, 'b': 400,’d’: 400, 'c': 300}). 
+41. Write a Python program to combine two dictionary adding values for common keys.
 
-from collections import Counter
+ def combine_dictionaries(dict1, dict2):
+    result_dict = {}
 
-d1={'a':100,'b':200,'c':300}
-d2={'a':300,'b':200,'c':400}
+    for key in set(dict1.keys()) | set(dict2.keys()):
+        result_dict[key] = dict1.get(key, 0) + dict2.get(key, 0)
 
-d = Counter(d1)+ Counter(d2)
+    return result_dict
 
-print(d)
+
+dictionary1 = {'a': 10, 'b': 20, 'c': 30}
+dictionary2 = {'b': 5, 'c': 15, 'd': 25}
+
+combined_dict = combine_dictionaries(dictionary1, dictionary2)
+
+print("Combined Dictionary:", combined_dict)
 
 
 42. Write a Python program to print all unique values in a dictionary.
 
-L = [{'V':'S01'},{'V':'S02'},{'VI':'S01'},{'VI':'S05'},{'VII':'S05'},{'V':'S09'},{'VIII':'S07'}]
-print('original List:',L)
-u_value = set(val for dic in L for val in dic.values())
-print('unique value:',u_value)
+def print_unique_values(dictionary):
+    unique_values = set()
+
+    for values in dictionary.values():
+        if isinstance(values, list) or isinstance(values, tuple):
+            unique_values.update(values)
+        else:
+            unique_values.add(values)
+
+    print("Unique Values in the Dictionary:")
+    for value in unique_values:
+        print(value)
+
+sample_dict = {
+    'key1': 10,
+    'key2': 20,
+    'key3': 10,
+    'key4': [30, 40],
+    'key5': [20, 30]
+}
+
+print_unique_values(sample_dict)
 
 
 43. Why Do You Use the Zip () Method in Python?
@@ -600,21 +668,27 @@ print("Maximum: ", max(data))
 print("Minimum: ", min(data))
 
 
-64. Write a Python program to combine values in python list of dictionaries. Sample data: [{'item': 'item1', 'amount': 400}, {'item': 'item2', 'amount': 300}, o
-{'item': 'item1', 'amount': 750}]
+64. Write a Python program to combine values in python list of dictionaries. 
 
-from collections import Counter
+def combine_values(list_of_dicts):
+    combined_values = []
 
-item_list = [{'item': 'item1', 'amount': 400}, {'item': 'item2', 'amount': 300}, {'item': 'item1',
-'amount': 750}]
+    for my_dict in list_of_dicts:
+        combined_values.extend(my_dict.values())
 
-result = Counter()
+    return combined_values
 
-for d in item_list:
-result[d['item']] += d['amount']
+sample_data = [
+    {'item': 'item1', 'amount': 400},
+    {'item': 'item2', 'amount': 300},
+    {'item': 'item1', 'amount': 750}
+]
 
-print(result)
+combined_values = combine_values(sample_data)
 
-
+print("Sample Data:")
+print(sample_data)
+print("\nCombined Values:")
+print(combined_values)
 
 

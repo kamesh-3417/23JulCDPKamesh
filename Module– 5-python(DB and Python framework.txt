@@ -1,0 +1,102 @@
+(1)  Why Django should be used for web-development? Explain how you can create a project in Django?
+
+ans= Django is the best framework for web applications, as it allows developers to use modules for faster development.
+     As a developer, you can make use of these modules to create apps, websites from an existing source. It speeds up the 
+     development process greatly, as you do not have to code everything from scratch.
+     
+ -> create a project in Django
+
+ 1. Install Django: pip install django
+
+ 2. Create a Django Project: django-admin startproject myproject
+
+ 3. Run the Development Server: python manage.py runserver
+
+ 4. Create Django Apps:-python manage.py startapp myapp
+
+ 5. Define Models
+
+ 6. Write Views
+
+ 7. Define URLs
+
+ 8. Create Templates
+
+ 9. Run Migrations python manage.py makemigrations python manage.py migrate
+
+ 10. Test Your Application.
+
+(2)  Howto check installed version of django?
+
+ans=  python-m django--version
+
+(3)  Explain what does django-admin.py make messages commandis used for?
+
+ans= The django-admin.py make messages command is used to generate or  update language translation files (.po files) for Django projects. 
+     These translation files contain translation strings extracted from Django templates and Python source code.
+
+(4) What is Django URLs?make program to create django urls.
+
+ans=  In Django, URLs are patterns used to map URLs to views within a web application. The URL patterns are defined in the urls.
+      py module of each Django app, and they determine which view function or class-based view should be called for a given URL.
+
+
+-Create a Django App: python manage.py startapp myapp
+-Define URL Patterns
+-Map URLs to Views
+-Include App URLs in Project URLs
+-from django.urls import path
+ from . import views
+
+ urlpatterns = [
+ path('', views.home, name='home'),
+ path('about/', views.about, name='about'),
+ path('contact/', views.contact, name='contact'),
+
+ ]
+ from django.shortcuts import render
+ from django.http import HttpResponse
+
+ def home(request):
+ return HttpResponse("Home Page")
+
+ def about(request):
+ return HttpResponse("About Page")
+
+def contact(request):
+ return HttpResponse("Contact Page")
+ from django.contrib import admin
+ from django.urls import path, include
+
+ urlpatterns = [
+ path('admin/', admin.site.urls),
+ path('myapp/', include('myapp.urls')),
+ ]
+
+(5)  What is a QuerySet?Write program to create a new Post object in database:
+
+ans=  A QuerySet is a collection of data from a database.AQuerySet is built up as a list of objects. QuerySets makes 
+      it easier to get the data you actually need, by allowing  you to filter and order the data at an early stage.
+
+ # models.py
+
+ from django.db import models
+
+ class Post(models.Model):
+ title = models.CharField(max_length=100)
+ content = models.TextField()
+ created_at = models.DateTimeField(auto_now_add=True)
+
+ def __str__(self):
+ return self.title
+
+(6) Mention what command line can be used to load data into Django?
+
+ans= To load data into Django you have to use the command line Django admin.py loaddata.
+     The command line will searches the data and loads the contents of the named fixtures into the database.
+
+(7) Explain what does django-admin.py make messages commandis used for?
+
+ans=  It performs administrative tasks related to Django, such as starting a Django project or creating a new Django app. 
+      It can also execute management commands offered by Django or third-party packages
+
